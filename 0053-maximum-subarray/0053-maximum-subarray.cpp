@@ -1,12 +1,13 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int curr_sum=nums.at(0);
-        int max_sum=nums.at(0);
-        for(int i=1;i<nums.size();i++){
-            curr_sum=max(nums.at(i),curr_sum+nums.at(i));
-            max_sum=max(max_sum,curr_sum);
+        int sum=0,ans=INT_MIN;
+        //kadane's algorithms
+        for(int i=0;i<nums.size();i++){
+            sum=max(sum+nums[i],nums[i]);
+            ans=max(ans,sum);
         }
-        return max_sum;
+        return ans;
     }
+        
 };
